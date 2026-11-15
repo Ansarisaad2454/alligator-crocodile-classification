@@ -18,8 +18,8 @@ for folder in os.listdir(data_dir):
 
         try:
             img = Image.open(file_path)
-            img.verify()   # checks if image is broken
-        except:
+            img.verify()
+        except (IOError, SyntaxError, OSError) as e:
             print(f"Removing corrupt image: {file_path}")
             os.remove(file_path)
             bad_images += 1

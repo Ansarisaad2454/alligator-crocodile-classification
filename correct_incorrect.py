@@ -2,6 +2,11 @@ import tensorflow as tf
 import numpy as np
 import os
 from PIL import Image
+import sys
+
+if not os.path.exists('efficientnetb0_model.h5'):
+    print('Model file not found. Train the model first.')
+    sys.exit(1)
 
 # load best model
 model = tf.keras.models.load_model("efficientnetb0_model.h5")
